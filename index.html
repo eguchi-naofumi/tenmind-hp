@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>株式会社テンマインド｜社長の判断を、会社の資産に。</title>
+<meta name="description" content="株式会社テンマインド（福岡）。社長が身につけた判断を言葉にし、次の世代に渡る形で会社に残す「社長の判断ラボ」を運営しています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;700&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+<style>
+/* 名刺（2026-10-07確定）と同じ配色：アイボリー×深緑×金 */
+:root{
+  --paper:#f5f1e8; --paper2:#efe9dc; --ink:#1f2620; --sub:#49514a; --muted:#6d7568; --hair:#d6cfbf;
+  --green:#2c4a3c; --green2:#20372c; --brass:#a17b3c; --brass2:#8a6931; --brass-lt:#c9a567; --ivory:#efe9dc; --ivory-sub:#d3ddd2;
+  --serif:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --eng:"Cormorant Garamond","Hoefler Text",Georgia,serif;
+  --pad:clamp(16px,5vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.9;font-size:clamp(15px,1.05vw + 10px,17px);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:0 var(--pad)}
+.kicker{font-family:var(--sans);font-weight:700;font-size:clamp(11px,.8vw + 6px,12px);letter-spacing:.28em;text-transform:uppercase;color:var(--brass2)}
+h2{font-weight:600;font-size:clamp(22px,2.2vw + 12px,32px);line-height:1.5;letter-spacing:.06em;color:var(--green);margin-top:.5em;text-wrap:balance}
+section{padding:clamp(64px,9vw,120px) 0}
+
+/* ヘッダー */
+header{position:sticky;top:0;z-index:10;background:rgba(245,241,232,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:30px;height:30px}
+.brand span{font-weight:600;letter-spacing:.14em;color:var(--green);font-size:15px}
+nav{display:flex;gap:clamp(14px,2.4vw,32px);font-family:var(--sans);font-size:13px;letter-spacing:.08em}
+nav a{text-decoration:none;color:var(--sub)}
+nav a:hover{color:var(--green)}
+@media(max-width:720px){nav{display:none}}
+
+/* ヒーロー */
+.hero{position:relative;overflow:hidden;padding:clamp(80px,13vw,170px) 0 clamp(72px,10vw,130px)}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.hero::before{width:min(70vw,620px);aspect-ratio:1;right:-18%;top:-34%;border:1px solid #e3dbc9}
+.hero::after{width:min(56vw,500px);aspect-ratio:1;right:-12%;top:-26%;border:1px solid #ebe4d4}
+.hero h1{font-weight:600;font-size:clamp(28px,4.4vw + 8px,56px);line-height:1.45;letter-spacing:.1em;color:var(--green);text-wrap:balance}
+.hero .rule{width:64px;height:2px;background:var(--brass);margin:clamp(24px,3vw,36px) 0}
+.hero p{max-width:30em;color:var(--sub)}
+.btn{display:inline-flex;align-items:center;gap:.6em;margin-top:clamp(28px,3vw,40px);padding:14px 28px;background:var(--green);color:#fff;text-decoration:none;font-family:var(--sans);font-size:14px;letter-spacing:.1em;border-radius:2px}
+.btn:hover{background:var(--green2)}
+
+/* 判断ラボ（深緑帯） */
+.lab{background:linear-gradient(160deg,var(--green),var(--green2));color:var(--ivory)}
+.lab .kicker{color:var(--brass-lt)}
+.lab h2{color:#fff}
+.lab .lead{margin-top:1.4em;max-width:34em;color:var(--ivory-sub)}
+.three{list-style:none;margin-top:clamp(28px,4vw,44px);padding-left:clamp(16px,2vw,24px);border-left:1px solid rgba(201,165,103,.6)}
+.three li{font-size:clamp(16px,.9vw + 11px,19px);line-height:2}
+.card{margin-top:clamp(40px,5vw,60px);border:1px solid rgba(201,165,103,.55);border-radius:4px;padding:clamp(20px,3vw,32px);max-width:720px}
+.card .ttl{display:flex;align-items:baseline;gap:12px;font-weight:600;color:var(--brass-lt);letter-spacing:.1em}
+.card .ttl small{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ivory-sub)}
+.card dl{display:grid;grid-template-columns:5em 1fr;gap:10px 16px;margin-top:16px}
+.card dt{font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--brass-lt);padding-top:.3em}
+.card dd{color:var(--ivory)}
+.card .note{margin-top:14px;font-family:var(--sans);font-size:12px;color:var(--ivory-sub)}
+.event{margin-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;max-width:720px}
+.event h3{font-weight:600;font-size:clamp(17px,1vw + 12px,20px);color:#fff;letter-spacing:.06em}
+.event p{margin-top:.6em;color:var(--ivory-sub);font-size:.95em}
+.event .meta{font-family:var(--sans);font-size:13px;letter-spacing:.06em;color:var(--brass-lt);margin-top:.8em}
+.qrbox{display:block;background:#fff;padding:10px;border-radius:2px;width:132px}
+.qrbox svg{display:block;width:100%;height:auto}
+@media(max-width:640px){.event{grid-template-columns:1fr}.card dl{grid-template-columns:1fr;gap:2px}.card dd{margin-bottom:10px}}
+
+/* 代表 */
+.profile{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(28px,5vw,64px);margin-top:clamp(28px,4vw,44px)}
+.profile .name{font-weight:600;font-size:clamp(24px,1.6vw + 14px,30px);letter-spacing:.2em}
+.profile .role{font-size:14px;letter-spacing:.14em;color:var(--sub)}
+.profile .en{font-family:var(--eng);font-size:16px;letter-spacing:.08em;color:var(--muted)}
+.profile .lic{margin-top:18px;font-family:var(--sans);font-size:13px;line-height:2;color:var(--sub)}
+.profile .bio p+p{margin-top:1em}
+@media(max-width:720px){.profile{grid-template-columns:1fr}}
+
+/* 会社概要 */
+.co{background:var(--paper2)}
+table{width:100%;border-collapse:collapse;margin-top:clamp(28px,4vw,44px);font-size:.95em}
+th,td{text-align:left;vertical-align:top;padding:18px 0;border-bottom:1px solid var(--hair)}
+th{width:9em;font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--brass2);padding-right:16px}
+td ul{list-style:none}
+@media(max-width:560px){th,td{display:block;width:auto;padding:0}th{padding-top:16px}td{padding:4px 0 16px}}
+
+/* お問い合わせ */
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);margin-top:clamp(28px,4vw,44px)}
+.contact .box{border:1px solid var(--hair);padding:clamp(20px,3vw,32px);background:#fffdf8}
+.contact .box h3{font-family:var(--sans);font-size:13px;letter-spacing:.14em;color:var(--brass2)}
+.contact .box p{margin-top:.8em}
+.contact .box a{color:var(--green);word-break:break-all}
+@media(max-width:640px){.contact .grid{grid-template-columns:1fr}}
+
+/* 10倍のマインド（社名の由来と筋繊維の図） */
+.ten{background:var(--paper2)}
+.ten h2 em{font-style:normal;color:var(--brass2)}
+.ten .lead{margin-top:1.4em;max-width:34em;color:var(--sub)}
+.fiber{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px);margin-top:clamp(36px,5vw,56px);position:relative}
+.fiber .step{background:#fffdf8;border:1px solid var(--hair);padding:clamp(20px,2.4vw,28px);position:relative}
+.fiber .step+.step::before{content:"";position:absolute;left:calc(-1 * clamp(16px,2.4vw,28px));top:50%;width:clamp(16px,2.4vw,28px);height:1px;background:var(--brass)}
+.fiber svg{display:block;width:100%;height:auto;max-height:96px}
+.fiber .no{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.2em;color:var(--brass2);margin-top:14px}
+.fiber h3{font-weight:600;font-size:clamp(17px,1vw + 12px,20px);color:var(--green);letter-spacing:.06em;margin-top:2px}
+.fiber .as{font-family:var(--sans);font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.fiber p{margin-top:.6em;font-size:.95em;color:var(--sub)}
+@media(max-width:720px){.fiber{grid-template-columns:1fr}.fiber .step+.step::before{left:50%;top:calc(-1 * clamp(16px,2.4vw,28px));width:1px;height:clamp(16px,2.4vw,28px)}}
+
+footer{border-top:1px solid var(--hair);padding:28px 0;font-family:var(--sans);font-size:12px;letter-spacing:.1em;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="株式会社テンマインド">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="22.5" fill="none" stroke="#2c4a3c" stroke-width="1.4"/>
+        <rect x="16" y="26" width="4.4" height="10" rx="2.2" fill="#2c4a3c"/>
+        <rect x="21.8" y="20" width="4.4" height="16" rx="2.2" fill="#5a7566"/>
+        <rect x="27.6" y="14" width="4.4" height="22" rx="2.2" fill="#a17b3c"/>
+      </svg>
+      <span>株式会社テンマインド</span>
+    </a>
+    <nav>
+      <a href="#tenmind">テンマインドとは</a>
+      <a href="#lab">社長の判断ラボ</a>
+      <a href="#profile">代表</a>
+      <a href="#company">会社概要</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>社長の判断を、<br>会社の資産に。</h1>
+      <div class="rule"></div>
+      <p>銀行が最後に見ているのは、決算書の奥にある、社長の判断です。その判断を言葉にし、次の世代に渡る形で、会社に残します。</p>
+      <a class="btn" href="#lab">社長の判断ラボについて</a>
+    </div>
+  </section>
+
+  <section class="ten" id="tenmind">
+    <div class="wrap">
+      <div class="kicker">TENMIND</div>
+      <h2>社長は、一人。<br>判断は、<em>10倍</em>の場所へ。</h2>
+      <p class="lead">テンマインドの「テン」は、10倍のマインド。社長の体は一つで、同時に十の現場には立てません。けれど、社長の判断を言葉にして蓄え、AIで束ねれば、判断は社長のいない場所にも届きます。会社を、筋繊維の束のように強くする。それが、テンマインドの仕事です。</p>
+      <div class="fiber">
+        <div class="step">
+          <svg viewBox="0 0 200 80" aria-hidden="true"><path d="M20 40 C70 30,130 50,180 40" fill="none" stroke="#a17b3c" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="no">01</div>
+          <h3>判断を、蓄える</h3>
+          <div class="as">一本の繊維＝社長の判断</div>
+          <p>社長の判断を聞き取り、「何を基準に・どんな出来事から・どんな場面で」の三つで、判断の型カードに残します。</p>
+        </div>
+        <div class="step">
+          <svg viewBox="0 0 200 80" aria-hidden="true"><g fill="none" stroke="#5a7566" stroke-width="2.4" stroke-linecap="round"><path d="M20 28 C70 22,130 34,180 28"/><path d="M20 36 C70 30,130 42,180 36"/><path d="M20 44 C70 38,130 50,180 44"/><path d="M20 52 C70 46,130 58,180 52"/></g><rect x="88" y="16" width="24" height="48" rx="12" fill="none" stroke="#a17b3c" stroke-width="2.4"/></svg>
+          <div class="no">02</div>
+          <h3>AIで、束ねる</h3>
+          <div class="as">結合組織＝AIエージェント</div>
+          <p>蓄えた判断をAIエージェントが束ね、社員や後継者の問いに答え、日々の業務の中で動かします。</p>
+        </div>
+        <div class="step">
+          <svg viewBox="0 0 200 80" aria-hidden="true"><g fill="none" stroke="#2c4a3c" stroke-width="2" stroke-linecap="round"><path d="M14 40 C60 6,140 6,186 40"/><path d="M14 40 C60 16,140 16,186 40"/><path d="M14 40 C60 28,140 28,186 40"/><path d="M14 40 C60 52,140 52,186 40"/><path d="M14 40 C60 64,140 64,186 40"/><path d="M14 40 C60 74,140 74,186 40"/></g></svg>
+          <div class="no">03</div>
+          <h3>会社が、強くなる</h3>
+          <div class="as">筋肉＝判断が届く会社</div>
+          <p>社長がいない場所でも、社長が替わっても、同じ判断の軸で会社が動く。それが、会社の資産になります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lab" id="lab">
+    <div class="wrap">
+      <div class="kicker">What We Do</div>
+      <h2>社長の判断ラボ</h2>
+      <p class="lead">30年かけて身についた社長の判断は、社長の頭の中にしかありません。社長の判断ラボは、その判断を聞き取りで言葉にし、次の世代が学べる形に残す、研究と実践の場です。</p>
+      <ul class="three">
+        <li>社長が30年かけて身につけた判断を、会社の力に。</li>
+        <li>後継者が先代の判断に学び、自分で決められるように。</li>
+        <li>社長が替わっても、銀行や取引先の信用が続くように。</li>
+      </ul>
+
+      <div class="card">
+        <div class="ttl">判断の型カード <small>見本</small></div>
+        <dl>
+          <dt>主張</dt><dd>支払いが遅れた取引先には、督促の前にまず会いに行く。</dd>
+          <dt>出典</dt><dd>催促で縁が切れた相手が、のちに上得意を紹介していた。</dd>
+          <dt>使い道</dt><dd>回収が遅れたとき。金額でなく、相手の顔を見て決める。</dd>
+        </dl>
+        <p class="note">判断を「何を基準に・どんな出来事から・どんな場面で」の三つで言葉にすると、社長の勘は、後継者が学べる形になります。</p>
+      </div>
+
+      <div class="event">
+        <div>
+          <h3>公開実演会（毎月1回・オンライン・無料）</h3>
+          <p>参加者お一人の判断を、その場で1枚の判断の型カードにします。お見せするのは手品ではなく、手順です。</p>
+          <p class="meta">第1回は11月を予定しています。ご案内はLINEでお届けします。</p>
+        </div>
+        <a class="qrbox" href="https://lin.ee/6UWVMfB" aria-label="LINEで友だち追加"><svg class="qr" viewBox="0 0 33 33" shape-rendering="crispEdges" role="img" aria-label="https://lin.ee/6UWVMfB"><rect width="33" height="33" fill="#fff"/><path fill="#1f2620" d="M4 4h7v1h-7zM12 4h3v1h-3zM16 4h2v1h-2zM19 4h1v1h-1zM22 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM13 5h3v1h-3zM17 5h2v1h-2zM20 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM12 6h1v1h-1zM16 6h2v1h-2zM19 6h1v1h-1zM22 6h1v1h-1zM24 6h3v1h-3zM28 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM13 7h3v1h-3zM18 7h1v1h-1zM20 7h1v1h-1zM22 7h1v1h-1zM24 7h3v1h-3zM28 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM14 8h2v1h-2zM17 8h1v1h-1zM19 8h1v1h-1zM22 8h1v1h-1zM24 8h3v1h-3zM28 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h2v1h-2zM15 9h1v1h-1zM17 9h2v1h-2zM22 9h1v1h-1zM28 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h7v1h-7zM14 11h1v1h-1zM19 11h2v1h-2zM4 12h1v1h-1zM6 12h1v1h-1zM10 12h2v1h-2zM16 12h2v1h-2zM19 12h1v1h-1zM23 12h1v1h-1zM26 12h1v1h-1zM28 12h1v1h-1zM5 13h2v1h-2zM8 13h1v1h-1zM12 13h1v1h-1zM14 13h4v1h-4zM19 13h1v1h-1zM22 13h2v1h-2zM25 13h1v1h-1zM27 13h2v1h-2zM4 14h2v1h-2zM10 14h1v1h-1zM12 14h1v1h-1zM17 14h1v1h-1zM19 14h1v1h-1zM21 14h1v1h-1zM23 14h4v1h-4zM28 14h1v1h-1zM4 15h2v1h-2zM7 15h2v1h-2zM12 15h1v1h-1zM14 15h1v1h-1zM18 15h4v1h-4zM23 15h3v1h-3zM6 16h1v1h-1zM10 16h4v1h-4zM15 16h1v1h-1zM20 16h1v1h-1zM22 16h2v1h-2zM28 16h1v1h-1zM5 17h1v1h-1zM11 17h1v1h-1zM13 17h1v1h-1zM19 17h1v1h-1zM22 17h2v1h-2zM27 17h2v1h-2zM4 18h2v1h-2zM8 18h3v1h-3zM14 18h2v1h-2zM19 18h1v1h-1zM25 18h2v1h-2zM28 18h1v1h-1zM6 19h4v1h-4zM13 19h2v1h-2zM20 19h1v1h-1zM22 19h4v1h-4zM4 20h2v1h-2zM9 20h2v1h-2zM12 20h1v1h-1zM15 20h3v1h-3zM19 20h6v1h-6zM27 20h1v1h-1zM12 21h1v1h-1zM14 21h1v1h-1zM16 21h1v1h-1zM20 21h1v1h-1zM24 21h1v1h-1zM28 21h1v1h-1zM4 22h7v1h-7zM12 22h1v1h-1zM14 22h1v1h-1zM16 22h1v1h-1zM18 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM28 22h1v1h-1zM4 23h1v1h-1zM10 23h1v1h-1zM15 23h2v1h-2zM19 23h2v1h-2zM24 23h1v1h-1zM28 23h1v1h-1zM4 24h1v1h-1zM6 24h3v1h-3zM10 24h1v1h-1zM13 24h2v1h-2zM17 24h8v1h-8zM28 24h1v1h-1zM4 25h1v1h-1zM6 25h3v1h-3zM10 25h1v1h-1zM13 25h1v1h-1zM17 25h1v1h-1zM19 25h1v1h-1zM24 25h1v1h-1zM26 25h2v1h-2zM4 26h1v1h-1zM6 26h3v1h-3zM10 26h1v1h-1zM12 26h1v1h-1zM14 26h2v1h-2zM20 26h2v1h-2zM23 26h3v1h-3zM27 26h2v1h-2zM4 27h1v1h-1zM10 27h1v1h-1zM17 27h1v1h-1zM20 27h5v1h-5zM4 28h7v1h-7zM12 28h1v1h-1zM15 28h3v1h-3zM20 28h2v1h-2zM25 28h1v1h-1zM28 28h1v1h-1z"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile">
+    <div class="wrap">
+      <div class="kicker">Profile</div>
+      <h2>代表</h2>
+      <div class="profile">
+        <div>
+          <div class="role">代表取締役</div>
+          <div class="name">江口 尚文</div>
+          <div class="en">Naofumi Eguchi</div>
+          <div class="lic">2級FP技能士<br>宅地建物取引士<br>人工知能学会 正会員</div>
+        </div>
+        <div class="bio">
+          <p>地方銀行で29年、営業と融資の両方の現場に立ち、中小企業の社長と向き合ってきました。その後、事業会社にて常務取締役・代表取締役を歴任し、株式会社テンマインドを設立しました。</p>
+          <p>いまは自らAIを組み、社長の判断を、次の世代に渡る形にする仕事をしています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="co" id="company">
+    <div class="wrap">
+      <div class="kicker">Company</div>
+      <h2>会社概要</h2>
+      <table>
+        <tr><th>社名</th><td>株式会社テンマインド</td></tr>
+        <tr><th>代表者</th><td>代表取締役　江口 尚文</td></tr>
+        <tr><th>所在地</th><td>〒811-1347　福岡県福岡市南区野多目6-3-4</td></tr>
+        <tr><th>設立</th><td>2023年（令和5年）10月17日</td></tr>
+        <tr><th>事業内容</th><td><ul>
+          <li>社長の判断ラボの運営（経営者の判断の言語化と継承の支援）</li>
+          <li>社長AIの企画・構築</li>
+          <li>銀行取引・資金調達に関するご相談</li>
+        </ul></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="kicker">Contact</div>
+      <h2>お問い合わせ</h2>
+      <div class="grid">
+        <div class="box"><h3>メール</h3><p><a href="mailto:eguchi@tenmindinc.com">eguchi@tenmindinc.com</a></p></div>
+        <div class="box"><h3>LINE</h3><p>公開実演会のご案内と、個別のご相談はLINEから承ります。</p><p><a href="https://lin.ee/6UWVMfB">LINEで友だち追加</a></p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© TENMIND INC.</span><span>社長の判断を、会社の資産に。</span></div>
+</footer>
+</body>
+</html>
