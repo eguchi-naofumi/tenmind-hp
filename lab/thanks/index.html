@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>お申込みありがとうございます｜社長の判断ラボ</title>
+<meta name="description" content="お申込みを受け付けました。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;700&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+<style>
+/* 名刺（2026-10-07確定）と同じ配色：アイボリー×深緑×金 */
+:root{
+  --paper:#f5f1e8; --paper2:#efe9dc; --ink:#1f2620; --sub:#49514a; --muted:#6d7568; --hair:#d6cfbf;
+  --green:#2c4a3c; --green2:#20372c; --brass:#a17b3c; --brass2:#8a6931; --brass-lt:#c9a567; --ivory:#efe9dc; --ivory-sub:#d3ddd2;
+  --serif:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --eng:"Cormorant Garamond","Hoefler Text",Georgia,serif;
+  --pad:clamp(16px,5vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.9;font-size:clamp(15px,1.05vw + 10px,17px);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:0 var(--pad)}
+.kicker{font-family:var(--sans);font-weight:700;font-size:clamp(11px,.8vw + 6px,12px);letter-spacing:.28em;text-transform:uppercase;color:var(--brass2)}
+h2{font-weight:600;font-size:clamp(22px,2.2vw + 12px,32px);line-height:1.5;letter-spacing:.06em;color:var(--green);margin-top:.5em;text-wrap:balance}
+section{padding:clamp(64px,9vw,120px) 0}
+
+/* ヘッダー */
+header{position:sticky;top:0;z-index:10;background:rgba(245,241,232,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:30px;height:30px}
+.brand span{font-weight:600;letter-spacing:.14em;color:var(--green);font-size:15px}
+nav{display:flex;gap:clamp(14px,2.4vw,32px);font-family:var(--sans);font-size:13px;letter-spacing:.08em}
+nav a{text-decoration:none;color:var(--sub)}
+nav a:hover{color:var(--green)}
+@media(max-width:720px){nav{display:none}}
+
+/* ヒーロー */
+.hero{position:relative;overflow:hidden;padding:clamp(80px,13vw,170px) 0 clamp(72px,10vw,130px)}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.hero::before{width:min(70vw,620px);aspect-ratio:1;right:-18%;top:-34%;border:1px solid #e3dbc9}
+.hero::after{width:min(56vw,500px);aspect-ratio:1;right:-12%;top:-26%;border:1px solid #ebe4d4}
+.hero h1{font-weight:600;font-size:clamp(28px,4.4vw + 8px,56px);line-height:1.45;letter-spacing:.1em;color:var(--green);text-wrap:balance}
+.hero .rule{width:64px;height:2px;background:var(--brass);margin:clamp(24px,3vw,36px) 0}
+.hero p{max-width:30em;color:var(--sub)}
+.btn{display:inline-flex;align-items:center;gap:.6em;margin-top:clamp(28px,3vw,40px);padding:14px 28px;background:var(--green);color:#fff;text-decoration:none;font-family:var(--sans);font-size:14px;letter-spacing:.1em;border-radius:2px}
+.btn:hover{background:var(--green2)}
+
+/* 判断ラボ（深緑帯） */
+.lab{background:linear-gradient(160deg,var(--green),var(--green2));color:var(--ivory)}
+.lab .kicker{color:var(--brass-lt)}
+.lab h2{color:#fff}
+.lab .lead{margin-top:1.4em;max-width:34em;color:var(--ivory-sub)}
+.three{list-style:none;margin-top:clamp(28px,4vw,44px);padding-left:clamp(16px,2vw,24px);border-left:1px solid rgba(201,165,103,.6)}
+.three li{font-size:clamp(16px,.9vw + 11px,19px);line-height:2}
+.card{margin-top:clamp(40px,5vw,60px);border:1px solid rgba(201,165,103,.55);border-radius:4px;padding:clamp(20px,3vw,32px);max-width:720px}
+.card .ttl{display:flex;align-items:baseline;gap:12px;font-weight:600;color:var(--brass-lt);letter-spacing:.1em}
+.card .ttl small{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ivory-sub)}
+.card dl{display:grid;grid-template-columns:5em 1fr;gap:10px 16px;margin-top:16px}
+.card dt{font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--brass-lt);padding-top:.3em}
+.card dd{color:var(--ivory)}
+.card .note{margin-top:14px;font-family:var(--sans);font-size:12px;color:var(--ivory-sub)}
+.event{margin-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;max-width:720px}
+.event h3{font-weight:600;font-size:clamp(17px,1vw + 12px,20px);color:#fff;letter-spacing:.06em}
+.event p{margin-top:.6em;color:var(--ivory-sub);font-size:.95em}
+.event .meta{font-family:var(--sans);font-size:13px;letter-spacing:.06em;color:var(--brass-lt);margin-top:.8em}
+.qrbox{display:block;background:#fff;padding:10px;border-radius:2px;width:132px}
+.qrbox svg{display:block;width:100%;height:auto}
+@media(max-width:640px){.event{grid-template-columns:1fr}.card dl{grid-template-columns:1fr;gap:2px}.card dd{margin-bottom:10px}}
+
+/* 代表 */
+.profile{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(28px,5vw,64px);margin-top:clamp(28px,4vw,44px)}
+.profile .name{font-weight:600;font-size:clamp(24px,1.6vw + 14px,30px);letter-spacing:.2em}
+.profile .role{font-size:14px;letter-spacing:.14em;color:var(--sub)}
+.profile .en{font-family:var(--eng);font-size:16px;letter-spacing:.08em;color:var(--muted)}
+.profile .lic{margin-top:18px;font-family:var(--sans);font-size:13px;line-height:2;color:var(--sub)}
+.profile .bio p+p{margin-top:1em}
+@media(max-width:720px){.profile{grid-template-columns:1fr}}
+
+/* 会社概要 */
+.co{background:var(--paper2)}
+table{width:100%;border-collapse:collapse;margin-top:clamp(28px,4vw,44px);font-size:.95em}
+th,td{text-align:left;vertical-align:top;padding:18px 0;border-bottom:1px solid var(--hair)}
+th{width:9em;font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--brass2);padding-right:16px}
+td ul{list-style:none}
+@media(max-width:560px){th,td{display:block;width:auto;padding:0}th{padding-top:16px}td{padding:4px 0 16px}}
+
+/* お問い合わせ */
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);margin-top:clamp(28px,4vw,44px)}
+.contact .box{border:1px solid var(--hair);padding:clamp(20px,3vw,32px);background:#fffdf8}
+.contact .box h3{font-family:var(--sans);font-size:13px;letter-spacing:.14em;color:var(--brass2)}
+.contact .box p{margin-top:.8em}
+.contact .box a{color:var(--green);word-break:break-all}
+@media(max-width:640px){.contact .grid{grid-template-columns:1fr}}
+
+/* 10倍のマインド（社名の由来と筋繊維の図） */
+.ten{background:var(--paper2)}
+.ten h2 em{font-style:normal;color:var(--brass2)}
+.ten .lead{margin-top:1.4em;max-width:34em;color:var(--sub)}
+.fiber{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px);margin-top:clamp(36px,5vw,56px);position:relative}
+.fiber .step{background:#fffdf8;border:1px solid var(--hair);padding:clamp(20px,2.4vw,28px);position:relative}
+.fiber .step+.step::before{content:"";position:absolute;left:calc(-1 * clamp(16px,2.4vw,28px));top:50%;width:clamp(16px,2.4vw,28px);height:1px;background:var(--brass)}
+.fiber svg{display:block;width:100%;height:auto;max-height:96px}
+.fiber .no{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.2em;color:var(--brass2);margin-top:14px}
+.fiber h3{font-weight:600;font-size:clamp(17px,1vw + 12px,20px);color:var(--green);letter-spacing:.06em;margin-top:2px}
+.fiber .as{font-family:var(--sans);font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.fiber p{margin-top:.6em;font-size:.95em;color:var(--sub)}
+@media(max-width:720px){.fiber{grid-template-columns:1fr}.fiber .step+.step::before{left:50%;top:calc(-1 * clamp(16px,2.4vw,28px));width:1px;height:clamp(16px,2.4vw,28px)}}
+
+footer{border-top:1px solid var(--hair);padding:28px 0;font-family:var(--sans);font-size:12px;letter-spacing:.1em;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* 申込ページ */
+.ev-head .meta{margin-top:1.2em;font-family:var(--sans);font-size:clamp(14px,.6vw + 11px,16px);letter-spacing:.06em;color:var(--green);font-weight:700}
+.flow{counter-reset:f;list-style:none;margin-top:1.4em;max-width:40em}
+.flow li{position:relative;padding:.7em 0 .7em 2.6em;border-bottom:1px solid var(--hair)}
+.flow li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:.75em;width:1.8em;height:1.8em;border-radius:50%;background:var(--green);color:#fff;font-family:var(--sans);font-size:13px;display:grid;place-items:center}
+.who{list-style:none;margin-top:1.2em}
+.who li{padding-left:1.2em;position:relative;margin:.4em 0}
+.who li::before{content:"";position:absolute;left:0;top:.85em;width:.45em;height:.45em;border-radius:50%;background:var(--brass)}
+form.apply{margin-top:clamp(24px,3vw,36px);display:grid;gap:18px;max-width:640px}
+form.apply label{display:block;font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:.06em;color:var(--green);margin-bottom:6px}
+form.apply label .req{color:#a33;font-weight:400;margin-left:.4em;font-size:12px}
+form.apply input[type=text],form.apply input[type=email],form.apply select{width:100%;font-family:var(--sans);font-size:16px;padding:12px 14px;border:1px solid var(--hair);border-radius:3px;background:#fffdf8;color:var(--ink)}
+form.apply input:focus,form.apply select:focus{outline:2px solid var(--brass);outline-offset:1px}
+.consent{font-family:var(--sans);font-size:13px;color:var(--sub);line-height:1.8}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{display:none;color:#a33;font-family:var(--sans);font-size:14px}
+button.btn{border:0;cursor:pointer;font-family:var(--sans)}
+button.btn[disabled]{opacity:.6;cursor:wait}
+.thanks{min-height:60vh;display:flex;align-items:center}
+.thanks .box{max-width:36em}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="株式会社テンマインド">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="22.5" fill="none" stroke="#2c4a3c" stroke-width="1.4"/>
+        <rect x="16" y="26" width="4.4" height="10" rx="2.2" fill="#2c4a3c"/>
+        <rect x="21.8" y="20" width="4.4" height="16" rx="2.2" fill="#5a7566"/>
+        <rect x="27.6" y="14" width="4.4" height="22" rx="2.2" fill="#a17b3c"/>
+      </svg>
+      <span>株式会社テンマインド</span>
+    </a>
+    <nav>
+      <a href="/#tenmind">テンマインドとは</a>
+      <a href="/#lab">社長の判断ラボ</a>
+      <a href="/#profile">代表</a>
+      <a href="/#company">会社概要</a>
+      <a href="/#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="thanks">
+    <div class="wrap box">
+      <div class="kicker">Thank You</div>
+      <h2>お申込みありがとうございます</h2>
+      <p style="margin-top:1.2em">ご登録のメールアドレスに、確認のメールをお送りしました。当日のZoomのURLも記載しています。</p>
+      <p style="margin-top:1em;color:var(--sub)">数分たってもメールが届かない場合は、迷惑メールのフォルダをご確認ください。それでも見当たらない場合は、eguchi@tenmindinc.com までご連絡ください。</p>
+      <p style="margin-top:1.6em">社長の判断ラボのお知らせは、LINEでもお届けしています。</p>
+      <a class="btn" href="https://lin.ee/6UWVMfB">LINEで友だち追加</a>
+      <p style="margin-top:2em"><a href="/" style="color:var(--green)">株式会社テンマインド トップへ</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© TENMIND INC.</span><span>社長の判断を、会社の資産に。</span></div>
+</footer>
+</body>
+</html>
