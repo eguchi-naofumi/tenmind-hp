@@ -155,6 +155,86 @@ THANKS = """<main>
 </main>
 """
 
+BOOKING = """<main>
+  <section class="hero ev-head">
+    <div class="wrap">
+      <div class="kicker">Private Session</div>
+      <h1>30分で、<br>御社の判断を1枚のカードに。</h1>
+      <div class="rule"></div>
+      <p>個別面談（30分・無料・オンライン）</p>
+      <p style="margin-top:1em;max-width:34em">前半15分で、最近迷った判断を一つ伺い、その場で「主張・出典・使い道」の三行にまとめた判断の型カードを1枚作り、面談後にお渡しします。後半は、カードを会社に残していく方法をご説明します。売り込みの場ではありません。</p>
+      <p style="margin-top:1em;color:var(--sub)">お申込みは、社長ご本人でも、後継者・幹部の方でも、士業・金融機関の方でも結構です。</p>
+    </div>
+  </section>
+  <section id="book">
+    <div class="wrap">
+      <div class="kicker">Booking</div>
+      <h2>日時を選んでご予約</h2>
+      <form class="apply" id="bookForm" novalidate>
+        <div><label for="slot">ご希望の日時<span class="req">必須</span></label>
+          <select id="slot" name="slot" required><option value="">空いている枠を読み込んでいます…</option></select></div>
+        <div><label for="name">お名前<span class="req">必須</span></label><input type="text" id="name" name="name" required autocomplete="name"></div>
+        <div><label for="email">メールアドレス<span class="req">必須</span></label><input type="email" id="email" name="email" required autocomplete="email"></div>
+        <div><label for="company">会社名・役職<span class="req">必須</span></label><input type="text" id="company" name="company" required autocomplete="organization"></div>
+        <div><label for="size">業種・従業員数</label><input type="text" id="size" name="size" placeholder="例：建設業・30名"></div>
+        <div><label for="age">社長の年齢層</label>
+          <select id="age" name="age"><option value="">選んでください（任意）</option><option>40代以下</option><option>50代</option><option>60代</option><option>70代以上</option></select></div>
+        <div><label for="successor">後継者の有無</label>
+          <select id="successor" name="successor"><option value="">選んでください（任意）</option><option>決まっている</option><option>候補はいる</option><option>未定</option><option>該当なし</option></select></div>
+        <div><label for="topic">面談で扱いたい判断を一言で<span class="req">必須</span></label><input type="text" id="topic" name="topic" required placeholder="例：値上げ、採用、取引先との関係"></div>
+        <div><label for="research">研究協力へのご関心</label>
+          <select id="research" name="research"><option value="">選んでください（任意）</option><option>ある</option><option>話を聞きたい</option><option>今はない</option></select></div>
+        <div class="hp" aria-hidden="true"><label>空欄のまま<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <p class="consent">お預かりした情報は、株式会社テンマインドが面談の準備とご連絡のためだけに使います。</p>
+        <p class="err" id="err">未入力の項目があります。日時・お名前・メールアドレス・会社名・扱いたい判断をご確認ください。</p>
+        <div><button class="btn" type="submit" id="submitBtn">この日時で予約する</button></div>
+      </form>
+      <div id="done" style="display:none;margin-top:28px">
+        <h3 style="font-weight:600;color:var(--green);font-size:1.2em">ご予約を承りました</h3>
+        <p style="margin-top:.8em" id="doneWhen"></p>
+        <p style="margin-top:.6em;color:var(--sub)">確認のメールをお送りしました。届かない場合は、迷惑メールのフォルダをご確認いただくか、eguchi@tenmindinc.com までご連絡ください。</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+const ENDPOINT = "__GAS_URL__";
+const sel = document.getElementById("slot");
+async function loadSlots() {
+  try {
+    const d = await fetch(ENDPOINT + "?a=slots").then(r => r.json());
+    sel.innerHTML = "";
+    if (!d.slots || !d.slots.length) { sel.innerHTML = '<option value="">ただいま空いている枠がありません</option>'; return; }
+    sel.append(new Option("選んでください", ""));
+    d.slots.forEach(s => sel.append(new Option(s.label + "〜（30分）", s.iso)));
+  } catch (_) { sel.innerHTML = '<option value="">枠を読み込めませんでした。再読み込みしてください</option>'; }
+}
+loadSlots();
+document.getElementById("bookForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const f = e.target, err = document.getElementById("err"), btn = document.getElementById("submitBtn");
+  const mailOk = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(f.email.value.trim());
+  const ok = ["slot", "name", "email", "company", "topic"].every(k => f[k].value.trim()) && mailOk;
+  if (!ok) { err.style.display = "block"; return; }
+  err.style.display = "none"; btn.disabled = true; btn.textContent = "予約しています…";
+  const body = new URLSearchParams(new FormData(f)); body.set("a", "book");
+  try {
+    const d = await fetch(ENDPOINT, { method: "POST", body }).then(r => r.json());
+    if (d.ok) {
+      f.style.display = "none"; document.getElementById("done").style.display = "block";
+      document.getElementById("doneWhen").textContent = "日時：" + d.when + "（オンライン）";
+    } else if (d.error === "taken") {
+      err.textContent = "申し訳ありません。その枠は直前に埋まりました。別の日時をお選びください。"; err.style.display = "block";
+      btn.disabled = false; btn.textContent = "この日時で予約する"; loadSlots();
+    } else { throw new Error(d.error); }
+  } catch (_) {
+    err.textContent = "送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。"; err.style.display = "block";
+    btn.disabled = false; btn.textContent = "この日時で予約する";
+  }
+});
+</script>
+"""
+
 
 def page(title, desc, body, robots=""):
     h = (HEAD.replace("__TITLE__", title).replace("__DESC__", desc).replace("__ROBOTS__", robots)
@@ -163,6 +243,7 @@ def page(title, desc, body, robots=""):
 
 
 (ROOT / "lab" / "thanks").mkdir(parents=True, exist_ok=True)
+(ROOT / "lab" / "booking").mkdir(parents=True, exist_ok=True)
 (ROOT / "lab" / "index.html").write_text(page(
     "社長の判断ラボ 公開実演会 第1回｜株式会社テンマインド",
     "社長の判断を、1枚のカードにする60分。2026年11月18日（水）20:00〜21:00、Zoom・無料。",
@@ -170,4 +251,7 @@ def page(title, desc, body, robots=""):
 (ROOT / "lab" / "thanks" / "index.html").write_text(page(
     "お申込みありがとうございます｜社長の判断ラボ", "お申込みを受け付けました。", THANKS,
     '<meta name="robots" content="noindex">\n'))
+(ROOT / "lab" / "booking" / "index.html").write_text(page(
+    "個別面談のご予約｜社長の判断ラボ", "30分で、御社の判断を1枚のカードに。個別面談（無料・オンライン）のご予約。",
+    BOOKING.replace("__GAS_URL__", GAS_URL), '<meta name="robots" content="noindex">\n'))
 print("built lab pages; endpoint =", GAS_URL)
