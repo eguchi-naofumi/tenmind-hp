@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>個別面談のご予約｜社長の判断ラボ</title>
-<meta name="description" content="30分で、御社の判断を1枚のカードに。個別面談（無料・オンライン）のご予約。">
-<meta name="robots" content="noindex">
+<title>プライバシーポリシー｜株式会社テンマインド</title>
+<meta name="description" content="株式会社テンマインドが、このサイトのお申込み・ご登録・お問い合わせで取得する個人情報の取り扱いを定めます。">
+<link rel="canonical" href="https://tenmindinc.com/privacy/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="株式会社テンマインド">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="個別面談のご予約｜社長の判断ラボ">
-<meta property="og:description" content="30分で、御社の判断を1枚のカードに。個別面談（無料・オンライン）のご予約。">
-<meta property="og:url" content="https://tenmindinc.com/lab/booking/">
+<meta property="og:title" content="プライバシーポリシー｜株式会社テンマインド">
+<meta property="og:description" content="株式会社テンマインドが、このサイトのお申込み・ご登録・お問い合わせで取得する個人情報の取り扱いを定めます。">
+<meta property="og:url" content="https://tenmindinc.com/privacy/">
 <meta property="og:image" content="https://tenmindinc.com/assets/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -317,83 +317,118 @@ footer .f-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8
   </div>
 </header>
 <main id="main">
-  <section class="hero ev-head">
+  <section class="doc-head">
     <div class="wrap">
-      <div class="kicker">Private Session</div>
-      <h1>30分で、<br><span class="nb">御社の判断を</span><span class="nb">1枚のカードに。</span></h1>
-      <div class="rule"></div>
-      <p>個別面談（30分・無料・オンライン）</p>
-      <p style="margin-top:1em;max-width:34em">前半15分で、最近迷った判断を一つ伺い、その場で「主張・出典・使い道」の三行にまとめた判断の型カードを1枚作り、面談後にお渡しします。後半は、カードを会社に残していく方法をご説明します。売り込みの場ではありません。</p>
-      <p style="margin-top:1em;color:var(--sub)">お申込みは、社長ご本人でも、後継者・幹部の方でも、士業・金融機関の方でも結構です。</p>
+      <div class="kicker">Privacy Policy</div>
+      <h1>プライバシーポリシー</h1>
+      <p class="date">2026年10月8日 制定</p>
     </div>
   </section>
-  <section id="book">
-    <div class="wrap">
-      <div class="kicker">Booking</div>
-      <h2>日時を選んでご予約</h2>
-      <form class="apply" id="bookForm" novalidate>
-        <div><label for="slot">ご希望の日時<span class="req">必須</span></label>
-          <select id="slot" name="slot" required><option value="">空いている枠を読み込んでいます…</option></select></div>
-        <div><label for="name">お名前<span class="req">必須</span></label><input type="text" id="name" name="name" required autocomplete="name"></div>
-        <div><label for="email">メールアドレス<span class="req">必須</span></label><input type="email" id="email" name="email" required autocomplete="email"></div>
-        <div><label for="company">会社名・役職<span class="req">必須</span></label><input type="text" id="company" name="company" required autocomplete="organization"></div>
-        <div><label for="size">業種・従業員数</label><input type="text" id="size" name="size" placeholder="例：建設業・30名"></div>
-        <div><label for="age">社長の年齢層</label>
-          <select id="age" name="age"><option value="">選んでください（任意）</option><option>40代以下</option><option>50代</option><option>60代</option><option>70代以上</option></select></div>
-        <div><label for="successor">後継者の有無</label>
-          <select id="successor" name="successor"><option value="">選んでください（任意）</option><option>決まっている</option><option>候補はいる</option><option>未定</option><option>該当なし</option></select></div>
-        <div><label for="topic">面談で扱いたい判断を一言で<span class="req">必須</span></label><input type="text" id="topic" name="topic" required placeholder="例：値上げ、採用、取引先との関係"></div>
-        <div><label for="research">研究協力へのご関心</label>
-          <select id="research" name="research"><option value="">選んでください（任意）</option><option>ある</option><option>話を聞きたい</option><option>今はない</option></select></div>
-        <div class="hp" aria-hidden="true"><label>空欄のまま<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <p class="consent">お預かりした情報は、株式会社テンマインドが面談の準備とご連絡のためだけに使います。詳しくは<a href="/privacy/">プライバシーポリシー</a>をご覧ください。</p>
-        <p class="err" id="err">未入力の項目があります。日時・お名前・メールアドレス・会社名・扱いたい判断をご確認ください。</p>
-        <div><button class="btn" type="submit" id="submitBtn">この日時で予約する</button></div>
-      </form>
-      <div id="done" style="display:none;margin-top:28px">
-        <h3 style="font-weight:600;color:var(--green);font-size:1.2em">ご予約を承りました</h3>
-        <p style="margin-top:.8em" id="doneWhen"></p>
-        <p style="margin-top:.6em;color:var(--sub)">確認のメールをお送りしました。届かない場合は、迷惑メールのフォルダをご確認いただくか、eguchi@tenmindinc.com までご連絡ください。</p>
-      </div>
-    </div>
+  <section class="doc" style="padding-bottom:clamp(64px,9vw,120px)">
+    <div class="wrap"><div class="body">
+      <p>株式会社テンマインド（以下「当社」）は、このサイトからのご登録・お申込み・ご予約と、メールやLINEでのお問い合わせで取得する個人情報を、個人情報の保護に関する法律（以下「個人情報保護法」）と関係する指針に従って、次のとおり取り扱います。</p>
+
+      <h2>1. 事業者</h2>
+      <dl>
+        <dt>名称</dt><dd>株式会社テンマインド</dd>
+        <dt>代表者</dt><dd>代表取締役　江口 尚文</dd>
+        <dt>所在地</dt><dd>〒811-1347　福岡県福岡市南区野多目6-3-4</dd>
+        <dt>お問い合わせ</dt><dd><a href="mailto:eguchi@tenmindinc.com">eguchi@tenmindinc.com</a></dd>
+      </dl>
+
+      <h2>2. 取得する情報</h2>
+      <p>各フォームに入力いただいた情報と、受付の記録を取得します。</p>
+      <div class="tbl"><table>
+        <thead><tr><th>受付</th><th>取得する情報</th></tr></thead>
+        <tr><th>お知らせの登録<br>（トップページ）</th><td>お名前、メールアドレス、どこからお越しになったか（例：本の巻末のリンク）</td></tr>
+        <tr><th>公開実演会のお申込み<br>（/lab/）</th><td>お名前、メールアドレス、会社名・役職、立場、いちばん近い関心、実演でご自身の判断を取り上げてほしいか（任意）、どこからお越しになったか</td></tr>
+        <tr><th>個別面談のご予約<br>（/lab/booking/）</th><td>ご希望の日時、お名前、メールアドレス、会社名・役職、面談で扱いたい判断、業種・従業員数（任意）、社長の年齢層（任意）、後継者の有無（任意）、研究協力へのご関心（任意）</td></tr>
+        <tr><th>受付の記録<br>（上の三つに共通）</th><td>受付日時、メールを送った日時、配信停止や予約取消のリンクに使う識別子、状態（配信中・停止、予約中・取消など）。お知らせの登録と公開実演会のお申込みでは、あわせて、お申込み時に表示した同意の文言の要旨を記録します（個別面談のご予約では記録しません）</td></tr>
+        <tr><th>お問い合わせ<br>（メール・LINE）</th><td>お名前、メールアドレスやLINEの表示名、お問い合わせの内容</td></tr>
+      </table></div>
+
+      <h2>3. 利用目的</h2>
+      <ul>
+        <li>『銀行員の目』シリーズの新刊のお知らせと、公開実演会のご案内をメールでお送りするため</li>
+        <li>公開実演会のお申込みの受付、参加方法のご連絡、開催前日と翌日のご案内のため</li>
+        <li>個別面談のご予約の受付、日程の確保、確認と前日のご案内のため</li>
+        <li>お問い合わせにお答えするため</li>
+      </ul>
+      <p>これ以外の目的には使いません。目的を変えるときは、個人情報保護法に従い、あらかじめご本人の同意をいただくか、変更後の目的をお知らせします。</p>
+
+      <h2>4. 第三者への提供</h2>
+      <p>法令に基づく場合を除き、ご本人の同意なく、個人情報を第三者に提供しません。受付の仕組みを動かすために、業務の一部を次の5の事業者に委託しています。</p>
+
+      <h2>5. 業務の委託と、外国での取り扱い</h2>
+      <div class="tbl"><table>
+        <thead><tr><th>委託先</th><th>委託する業務と、預ける情報</th></tr></thead>
+        <tr><th>Google LLC（米国）<br>Google Workspace</th><td>受付の処理（Google Apps Script）、名簿と予約の記録の保管（Google スプレッドシート）、確認・案内メールの送信（Gmail）、面談の予定の登録（Google カレンダー）。預ける情報は、上の2の情報のすべてです。</td></tr>
+      </table></div>
+      <p>Google LLC は米国の事業者です。当社は、Google との契約（<a href="https://cloud.google.com/terms/data-processing-addendum/">Cloud Data Processing Addendum</a>）で次の事項が定められていることを確認し、個人情報保護法第28条第1項に定める「個人情報取扱事業者が講ずべき措置に相当する措置を継続的に講ずるために必要な体制」を整えた事業者への委託として扱っています。</p>
+      <ul>
+        <li>当社の指示に従ってのみ、情報を処理すること</li>
+        <li>情報の暗号化、アクセスの制限など、技術・組織・物理の各面で安全管理措置を講じること。ISO/IEC 27001 の認証と、SOC 2・SOC 3 の監査を毎年受けること</li>
+        <li>再委託先を公開し、追加するときは事前に知らせること</li>
+        <li>契約が終わったときは、情報を削除すること</li>
+      </ul>
+      <h3>移転先の国と、その国の制度</h3>
+      <p>米国には、連邦レベルの包括的な個人情報保護法はありません。分野ごとの連邦法（電子通信プライバシー法、医療情報に関する HIPAA など）と、州法（カリフォルニア州消費者プライバシー法など）があります。EU の十分性認定は受けていません。APEC の越境プライバシールール（CBPR）システムには2012年7月から参加しています。事業者に政府の情報収集への協力義務を課す制度で、本人の権利利益に重大な影響を及ぼしうるものは、個人情報保護委員会の調査では挙げられていません。</p>
+      <p class="note">出典：個人情報保護委員会「<a href="https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/">諸外国・地域の法制度（アメリカ）</a>」（2021年10月時点の情報）</p>
+      <h3>情報が保存されるサーバの国</h3>
+      <p>特定できません。Google は世界各地のデータセンターで情報を保存・処理しており、当社の契約では保存する国を指定していないためです。データセンターの所在地は、Google の「<a href="https://datacenters.google/locations/">データセンターの所在地</a>」で公開されています。</p>
+      <h3>当社が続けて行う確認</h3>
+      <p>当社は、年に1回以上、Google の契約条件と安全管理の状況、米国の制度の変化を確認します。相当する措置の実施に支障が生じたときは必要な対応をとり、続けることが難しくなったときは委託をやめます。ご本人から求めがあったときは、個人情報保護法施行規則第18条第3項に定める事項をお知らせします。</p>
+
+      <h2>6. 安全管理のために講じている措置</h2>
+      <ul>
+        <li>基本方針：このポリシーを定め、個人情報保護法と関係する指針に従って取り扱います。</li>
+        <li>取り扱いの決まり：取得・利用・保存・削除の各段階で、誰が、どのように取り扱うかを定めています。</li>
+        <li>組織的な措置：個人情報の取り扱いの責任者を代表取締役とします。漏えいなどが起きたとき、またはそのおそれがあるときは、責任者が状況を確かめ、法令に従って個人情報保護委員会への報告とご本人への通知を行います。</li>
+        <li>人的な措置：個人情報を取り扱うのは代表取締役に限ります。今後ほかの者に取り扱わせるときは、秘密を守る約束をしたうえで、取り扱いの決まりを教えます。</li>
+        <li>物理的な措置：個人情報を扱う端末は、画面ロックをかけ、盗難や紛失に備えます。</li>
+        <li>技術的な措置：フォームからの送信は暗号化した通信（HTTPS）で行います。名簿と予約の記録は当社の Google Workspace の中に置き、閲覧・編集できる人を代表取締役に限っています。</li>
+        <li>外的環境の把握：外国で取り扱う情報は、上の5のとおり、その国の制度を把握したうえで措置を講じています。</li>
+      </ul>
+
+      <h2>7. 保存期間</h2>
+      <ul>
+        <li>お知らせの登録と公開実演会のお申込み：配信を続けている間、保存します。配信を停止された方の情報は、再び送らないための記録と、特定電子メール法に基づく記録として、停止の日から1年を過ぎた後に消去します。</li>
+        <li>個別面談のご予約：面談の後、ご相談が続いている間は保存し、最後のご連絡から3年を過ぎた後に消去します。取り消された予約は、取消の日から1年を過ぎた後に消去します。</li>
+        <li>お問い合わせ：対応を終えた日から3年を過ぎた後に消去します。</li>
+      </ul>
+
+      <h2>8. 開示・訂正・利用停止などのご請求</h2>
+      <p>当社が保有するご本人の情報について、利用目的の通知、開示（電磁的記録での提供を含みます）、内容の訂正・追加・削除、利用の停止・消去、第三者への提供の停止、第三者提供の記録の開示をご請求いただけます。</p>
+      <ul>
+        <li>ご請求の方法：上の1のお問い合わせ先へ、ご登録のメールアドレスからメールでご連絡ください。</li>
+        <li>ご本人の確認：ご登録のメールアドレスからの送信で確認します。必要なときは、追加の確認をお願いします。</li>
+        <li>代理人によるご請求：委任状をお送りいただきます。</li>
+        <li>手数料：いただきません。</li>
+        <li>回答の方法：原則としてメールで、遅滞なくお答えします。</li>
+      </ul>
+
+      <h2>9. 配信の停止</h2>
+      <p>お知らせと公開実演会のご案内は、毎回のメールの末尾にあるリンクから、いつでも停止できます。上の1のお問い合わせ先へメールでご連絡いただいても停止します。面談のご予約は、確認メールにある取消のリンクから取り消せます。</p>
+
+      <h2>10. このサイトの閲覧と、当社が使うほかのサービス</h2>
+      <ul>
+        <li>当社は、このサイトでアクセス解析を行っていません。閲覧の追跡のための Cookie も使っていません。</li>
+        <li>このサイトは GitHub, Inc.（米国）の GitHub Pages で公開しています。GitHub は、セキュリティのため、閲覧者の IP アドレスを記録します（<a href="https://docs.github.com/ja/pages/getting-started-with-github-pages/what-is-github-pages">GitHub の説明</a>）。</li>
+        <li>文字の表示に Google Fonts（Google LLC）を使っています。文字のデータを読み込む際に、閲覧者の IP アドレスなどが Google に送られます（<a href="https://fonts.google.com/faq">Google の説明</a>）。</li>
+        <li>公開実演会と個別面談には Zoom（Zoom Communications, Inc.・米国）を使います。当社から申込の情報を Zoom に渡すことはありません。Zoom への参加時に同社が取得する情報は、同社のプライバシーポリシーに従って取り扱われます。</li>
+        <li>LINE 公式アカウント（LINEヤフー株式会社のサービス）で友だち追加やご相談をいただいた場合、当社は LINE の表示名とメッセージの内容を、同社のサービスの中で取り扱います。</li>
+      </ul>
+      <p>これらのサービスが取得する情報は、各社のプライバシーポリシーに従って取り扱われます。</p>
+
+      <h2>11. 改定</h2>
+      <p>法令の改正や、受付の仕組みの変更に合わせて、このポリシーを改定します。改定したときは、このページで改定日とともに公表します。</p>
+
+      <h2>12. お問い合わせ・苦情の窓口</h2>
+      <p>株式会社テンマインド　個人情報のお問い合わせ窓口<br><a href="mailto:eguchi@tenmindinc.com">eguchi@tenmindinc.com</a></p>
+      <p style="margin-top:2.4em" class="note">2026年10月8日 制定</p>
+    </div></div>
   </section>
 </main>
-<script>
-const ENDPOINT = "https://script.google.com/macros/s/AKfycbzcRa90BRMXowa6T74mS-4Tx2bHR8sw7PZEe_kfyuvGGlXajV9ZAU-JxeK52FpFtzVeSA/exec";
-const sel = document.getElementById("slot");
-async function loadSlots() {
-  try {
-    const d = await fetch(ENDPOINT + "?a=slots").then(r => r.json());
-    sel.innerHTML = "";
-    if (!d.slots || !d.slots.length) { sel.innerHTML = '<option value="">ただいま空いている枠がありません</option>'; return; }
-    sel.append(new Option("選んでください", ""));
-    d.slots.forEach(s => sel.append(new Option(s.label + "〜（30分）", s.iso)));
-  } catch (_) { sel.innerHTML = '<option value="">枠を読み込めませんでした。再読み込みしてください</option>'; }
-}
-loadSlots();
-document.getElementById("bookForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const f = e.target, err = document.getElementById("err"), btn = document.getElementById("submitBtn");
-  const mailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim());
-  const ok = ["slot", "name", "email", "company", "topic"].every(k => f[k].value.trim()) && mailOk;
-  if (!ok) { err.style.display = "block"; return; }
-  err.style.display = "none"; btn.disabled = true; btn.textContent = "予約しています…";
-  const body = new URLSearchParams(new FormData(f)); body.set("a", "book");
-  try {
-    const d = await fetch(ENDPOINT, { method: "POST", body }).then(r => r.json());
-    if (d.ok) {
-      f.style.display = "none"; document.getElementById("done").style.display = "block";
-      document.getElementById("doneWhen").textContent = "日時：" + d.when + "（オンライン）";
-    } else if (d.error === "taken") {
-      err.textContent = "申し訳ありません。その枠は直前に埋まりました。別の日時をお選びください。"; err.style.display = "block";
-      btn.disabled = false; btn.textContent = "この日時で予約する"; loadSlots();
-    } else { throw new Error(d.error); }
-  } catch (_) {
-    err.textContent = "送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。"; err.style.display = "block";
-    btn.disabled = false; btn.textContent = "この日時で予約する";
-  }
-});
-</script>
 
 <footer>
   <div class="wrap f-main">
