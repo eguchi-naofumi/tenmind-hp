@@ -86,7 +86,7 @@ LAB = """<main id="main">
       <div class="kicker">Public Demonstration</div>
       <h1>社長の判断を、<br>1枚のカードにする60分</h1>
       <div class="rule"></div>
-      <p>社長の判断ラボ 公開実演会 第1回</p>
+      <p>社長の判断×AIラボ 公開実演会 第1回</p>
       <p class="meta">2026年11月18日（水）20:00〜21:00 ／ Zoom ／ 無料</p>
       <a class="btn" href="#apply">申込みはこちら</a>
     </div>
@@ -136,7 +136,7 @@ LAB = """<main id="main">
         <div><label for="demo">実演で、ご自身の判断を取り上げてほしいですか</label>
           <select id="demo" name="demo"><option value="">選んでください（任意）</option><option>取り上げてほしい</option><option>見るだけにしたい</option></select></div>
         <div class="hp" aria-hidden="true"><label>空欄のまま<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <p class="consent">お申込みいただいたメールアドレスに、本会のご案内と、社長の判断ラボからのお知らせをお送りします。配信はいつでも、メール末尾のリンクから停止できます。お預かりした情報は、株式会社テンマインドが本会の運営とご連絡のためだけに使います。詳しくは<a href="/privacy/">プライバシーポリシー</a>をご覧ください。</p>
+        <p class="consent">お申込みいただいたメールアドレスに、本会のご案内と、社長の判断×AIラボからのお知らせをお送りします。配信はいつでも、メール末尾のリンクから停止できます。お預かりした情報は、株式会社テンマインドが本会の運営とご連絡のためだけに使います。詳しくは<a href="/privacy/">プライバシーポリシー</a>をご覧ください。</p>
         <p class="err" id="err">未入力の項目があります。お名前・メールアドレス・会社名・立場・関心をご確認ください。</p>
         <div><button class="btn" type="submit" id="submitBtn">申し込む（無料）</button></div>
       </form>
@@ -173,7 +173,7 @@ THANKS = """<main id="main">
       <h2>お申込みありがとうございます</h2>
       <p style="margin-top:1.2em">ご登録のメールアドレスに、確認のメールをお送りしました。当日のZoomのURLも記載しています。</p>
       <p style="margin-top:1em;color:var(--sub)">数分たってもメールが届かない場合は、迷惑メールのフォルダをご確認ください。それでも見当たらない場合は、eguchi@tenmindinc.com までご連絡ください。</p>
-      <p style="margin-top:1.6em">社長の判断ラボのお知らせは、LINEでもお届けしています。</p>
+      <p style="margin-top:1.6em">社長の判断×AIラボのお知らせは、LINEでもお届けしています。</p>
       <a class="btn" href="https://lin.ee/6UWVMfB">LINEで友だち追加</a>
       <p style="margin-top:2em"><a href="/" style="color:var(--green)">株式会社テンマインド トップへ</a></p>
     </div>
@@ -410,7 +410,7 @@ PROFILE = """<main id="main">
         <tr><th>銀行</th><td>地方銀行に29年勤務。営業と融資の両方の現場で、中小企業の社長と向き合う</td></tr>
         <tr><th>経営</th><td>事業会社にて常務取締役・代表取締役を歴任</td></tr>
         <tr><th>2023年10月</th><td>株式会社テンマインドを設立し、代表取締役に就任</td></tr>
-        <tr><th>現在</th><td>社長の判断ラボを主宰</td></tr>
+        <tr><th>現在</th><td>社長の判断×AIラボを主宰</td></tr>
         <tr><th>資格・所属</th><td>2級FP技能士／宅地建物取引士／人工知能学会 正会員</td></tr>
       </table>
       <div class="actions">
@@ -453,13 +453,13 @@ def page(title, desc, body, path, index=True):
 for d in ["lab/thanks", "lab/booking", "profile", "privacy"]:
     (ROOT / d).mkdir(parents=True, exist_ok=True)
 (ROOT / "lab" / "index.html").write_text(page(
-    "社長の判断ラボ 公開実演会 第1回｜株式会社テンマインド",
+    "社長の判断×AIラボ 公開実演会 第1回｜株式会社テンマインド",
     "社長の判断を、1枚のカードにする60分。2026年11月18日（水）20:00〜21:00、Zoom・無料。",
     LAB.replace("__GAS_URL__", GAS_URL), "/lab/"))
 (ROOT / "lab" / "thanks" / "index.html").write_text(page(
-    "お申込みありがとうございます｜社長の判断ラボ", "お申込みを受け付けました。", THANKS, "/lab/thanks/", index=False))
+    "お申込みありがとうございます｜社長の判断×AIラボ", "お申込みを受け付けました。", THANKS, "/lab/thanks/", index=False))
 (ROOT / "lab" / "booking" / "index.html").write_text(page(
-    "個別面談のご予約｜社長の判断ラボ", "30分で、御社の判断を1枚のカードに。個別面談（無料・オンライン）のご予約。",
+    "個別面談のご予約｜社長の判断×AIラボ", "30分で、御社の判断を1枚のカードに。個別面談（無料・オンライン）のご予約。",
     BOOKING.replace("__GAS_URL__", GAS_URL), "/lab/booking/", index=False))
 (ROOT / "profile" / "index.html").write_text(page(
     "代表メッセージ｜株式会社テンマインド",
