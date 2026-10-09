@@ -154,6 +154,11 @@ header .wrap{max-width:1200px;display:flex;align-items:center;justify-content:sp
 .item .no{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.2em;color:var(--brass2)}
 .item h3{font-weight:600;font-size:clamp(19px,1.2vw + 13px,24px);letter-spacing:.08em;color:var(--green);margin-top:4px}
 .item p{margin-top:.7em;color:var(--sub)}
+.pn{white-space:nowrap}
+.pname{display:flex;flex-direction:column;gap:2px}
+.pname-by{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--brass2)}
+.pname-main{font-size:clamp(30px,1.8vw + 22px,40px);letter-spacing:.2em;line-height:1.25}
+.item .pname-note{font-size:.9em;color:var(--muted)}
 .sample{margin-top:22px;border:1px solid var(--hair);background:var(--paper);padding:clamp(16px,2vw,24px);position:relative}
 .sample::before{content:"";position:absolute;inset:4px;border:1px solid var(--brass);opacity:.35;pointer-events:none}
 .sample .ttl{display:flex;align-items:baseline;gap:10px;font-weight:600;color:var(--green);letter-spacing:.1em}
@@ -362,8 +367,9 @@ footer .f-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8
           </div>
           <div class="item">
             <div class="no">02</div>
-            <h3>御社専用のAI</h3>
-            <p>判断の型カードをもとに、社員や後継者の問いに答えるAIです。一社ごとに組み、御社の中だけでお使いいただきます。</p>
+            <h3 class="pname"><span class="pname-by">テンマインドの社長AI</span><span class="pname-main">進撃</span></h3>
+            <p>判断の型カードをもとに、社員や後継者の問いに答える御社専用のAIです。一社ごとに組み、御社の中だけでお使いいただきます。</p>
+            <p class="pname-note">「進撃」という名前には、社長の判断を受け継ぎ、止まらずに前へ進むという意味を込めています。</p>
             <figure class="screen" aria-label="御社専用のAIの画面イメージ（架空の会社）">
               <div class="scr">
                 <div class="scr-bar" aria-hidden="true">〇〇工業（架空）<span>社内用</span></div>
@@ -404,7 +410,7 @@ footer .f-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8
       <ol class="steps">
         <li><span class="n" aria-hidden="true"></span><div class="body"><h3>公開実演会</h3><div class="meta">毎月1回・オンライン・無料</div><p>代表の江口が進行し、参加者お一人の判断を、その場で判断の型カードにします。</p></div></li>
         <li><span class="n" aria-hidden="true"></span><div class="body"><h3>個別面談</h3><div class="meta">30分・オンライン・無料</div><p>江口が最近迷われた判断を一つ伺い、判断の型カードを1枚作ってお渡しします。</p></div></li>
-        <li><span class="n" aria-hidden="true"></span><div class="body"><h3>ご提案</h3><p>御社専用のAIにお任せいただく業務が一つ定まった方にだけ、進め方と費用を書面でお示しします。</p></div></li>
+        <li><span class="n" aria-hidden="true"></span><div class="body"><h3>ご提案</h3><p>御社専用のAIにお任せいただく業務が一つ定まった方にだけ、進め方と費用を書面でお示しします。テンマインドの<span class="pn">社長AI 進撃</span>には、ライト・プロ・マックスの三つの形があり、どの形が合うかもあわせてお示しします。</p></div></li>
         <li><span class="n" aria-hidden="true"></span><div class="body"><h3>取材</h3><p>江口が社長に伺い、判断の型カードを作ります。カードは社長ご本人に確かめていただいてから使います。</p></div></li>
         <li><span class="n" aria-hidden="true"></span><div class="body"><h3>納品</h3><p>カードをもとに答える御社専用のAIを、御社の中でお使いいただける形でお納めします。社員や後継者は、社長が確かめた判断の範囲で、社長や江口がいない場でもAIに尋ねられます。</p></div></li>
       </ol>
@@ -508,7 +514,7 @@ footer .f-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8
         <tr><th>設立</th><td>2023年（令和5年）10月17日</td></tr>
         <tr><th>事業内容</th><td><ul>
           <li>社長の判断×AIラボの運営（経営者の判断の言語化と継承の支援）</li>
-          <li>経営者の判断を学ぶAIの企画・構築（一社ごとの個別構築）</li>
+          <li>経営者の判断を学ぶAI<span class="pn">「社長AI 進撃」</span>の企画・構築（一社ごとの個別構築）</li>
           <li>経営に関する助言（顧問契約）</li>
           <li>AI開発環境「BlueLamp」の紹介・販売代行</li>
         </ul></td></tr>
