@@ -402,6 +402,7 @@ document.getElementById("bookForm").addEventListener("submit", async (e) => {
   if (!ok) { err.style.display = "block"; return; }
   err.style.display = "none"; btn.disabled = true; btn.textContent = "予約しています…";
   const body = new URLSearchParams(new FormData(f)); body.set("a", "book");
+  body.set("src", window.tmSrc ? tmSrc("") : new URLSearchParams(location.search).get("src") || ""); // 空なら GAS 側で名簿の経路を引き継ぐ
   try {
     const d = await fetch(ENDPOINT, { method: "POST", body }).then(r => r.json());
     if (d.ok) {
@@ -439,7 +440,7 @@ document.getElementById("bookForm").addEventListener("submit", async (e) => {
       <a href="/profile/">代表メッセージ</a>
       <a href="/#lab">社長の判断×AIラボ</a>
       <a href="/#company">会社概要</a>
-      <a href="/lab/">公開実演会</a>
+      <a href="/lab/?src=hp">公開実演会</a>
       <a href="/#contact">お問い合わせ</a>
       <a href="/#news">お知らせ登録</a>
       <a href="/privacy/">プライバシーポリシー</a>

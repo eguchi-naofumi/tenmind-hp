@@ -412,7 +412,7 @@ document.getElementById("applyForm").addEventListener("submit", async (e) => {
   if (!ok) { err.style.display = "block"; return; }
   err.style.display = "none"; btn.disabled = true; btn.textContent = "送信しています…";
   const body = new URLSearchParams(new FormData(f));
-  body.set("src", new URLSearchParams(location.search).get("src") || "web");
+  body.set("src", window.tmSrc ? tmSrc("web") : new URLSearchParams(location.search).get("src") || "web");
   try {
     await fetch(ENDPOINT, { method: "POST", mode: "no-cors", body });
     location.href = "/lab/thanks/";
@@ -445,7 +445,7 @@ document.getElementById("applyForm").addEventListener("submit", async (e) => {
       <a href="/profile/">代表メッセージ</a>
       <a href="/#lab">社長の判断×AIラボ</a>
       <a href="/#company">会社概要</a>
-      <a href="/lab/">公開実演会</a>
+      <a href="/lab/?src=hp">公開実演会</a>
       <a href="/#contact">お問い合わせ</a>
       <a href="/#news">お知らせ登録</a>
       <a href="/privacy/">プライバシーポリシー</a>

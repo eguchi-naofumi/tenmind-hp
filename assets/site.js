@@ -1,3 +1,12 @@
+// 全ページ共通：経路（?src=）の引き継ぎ。このタブで最初に付いていた ?src= を覚え、申込・お知らせ登録・面談予約の送信に添える
+// （例：/?src=line で来て /lab/?src=hp へ進んでも line のまま。Cookie は使わず、タブを閉じれば消える）
+window.tmSrc = (() => {
+  const q = new URLSearchParams(location.search).get("src");
+  let first = null;
+  try { first = sessionStorage.getItem("tm_src"); if (!first && q) sessionStorage.setItem("tm_src", first = q.slice(0, 40)); } catch (_) {}
+  return (fallback) => first || q || fallback;
+})();
+
 // 全ページ共通：狭い幅（1120px以下）のメニュー開閉
 (() => {
   const btn = document.querySelector(".menu-btn");

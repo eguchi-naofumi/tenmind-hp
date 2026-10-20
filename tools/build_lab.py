@@ -153,7 +153,7 @@ document.getElementById("applyForm").addEventListener("submit", async (e) => {
   if (!ok) { err.style.display = "block"; return; }
   err.style.display = "none"; btn.disabled = true; btn.textContent = "送信しています…";
   const body = new URLSearchParams(new FormData(f));
-  body.set("src", new URLSearchParams(location.search).get("src") || "web");
+  body.set("src", window.tmSrc ? tmSrc("web") : new URLSearchParams(location.search).get("src") || "web");
   try {
     await fetch(ENDPOINT, { method: "POST", mode: "no-cors", body });
     location.href = "/lab/thanks/";
@@ -244,6 +244,7 @@ document.getElementById("bookForm").addEventListener("submit", async (e) => {
   if (!ok) { err.style.display = "block"; return; }
   err.style.display = "none"; btn.disabled = true; btn.textContent = "予約しています…";
   const body = new URLSearchParams(new FormData(f)); body.set("a", "book");
+  body.set("src", window.tmSrc ? tmSrc("") : new URLSearchParams(location.search).get("src") || ""); // 空なら GAS 側で名簿の経路を引き継ぐ
   try {
     const d = await fetch(ENDPOINT, { method: "POST", body }).then(r => r.json());
     if (d.ok) {
@@ -414,7 +415,7 @@ PROFILE = """<main id="main">
         <tr><th>資格・所属</th><td>2級FP技能士／宅地建物取引士／人工知能学会 正会員</td></tr>
       </table>
       <div class="actions">
-        <a class="btn" href="/lab/">公開実演会に申し込む（無料）</a>
+        <a class="btn" href="/lab/?src=hp">公開実演会に申し込む（無料）</a>
         <a class="btn btn-ghost" href="/#news">新刊・実演会のお知らせを受け取る</a>
       </div>
     </div>
@@ -432,7 +433,7 @@ NOT_FOUND = """<main id="main">
         <a class="btn" href="/">トップページへ</a>
         <a class="btn btn-ghost" href="/#news">新刊・実演会のお知らせを受け取る</a>
       </div>
-      <p style="margin-top:2em;font-family:var(--sans);font-size:14px">公開実演会のお申込みは<a href="/lab/" style="color:var(--green)">こちら</a>です。</p>
+      <p style="margin-top:2em;font-family:var(--sans);font-size:14px">公開実演会のお申込みは<a href="/lab/?src=hp" style="color:var(--green)">こちら</a>です。</p>
     </div>
   </section>
 </main>
