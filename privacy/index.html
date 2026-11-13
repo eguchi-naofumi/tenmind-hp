@@ -277,6 +277,13 @@ footer .f-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8
 .who li::before{content:"";position:absolute;left:0;top:.85em;width:.45em;height:.45em;border-radius:50%;background:var(--brass)}
 .thanks{min-height:60vh;display:flex;align-items:center}
 .thanks .box{max-width:36em}
+.rcpt{margin-top:1.6em;padding:clamp(20px,3vw,28px);border:1px solid var(--hair);border-top:3px solid var(--brass);background:#fff}
+.rcpt .label{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--brass2)}
+.rcpt .no{margin-top:.15em;font-family:var(--sans);font-size:clamp(40px,6vw + 18px,56px);font-weight:700;letter-spacing:.14em;line-height:1.2;color:var(--green);font-variant-numeric:tabular-nums}
+.rcpt .btn{margin-top:1.2em;justify-content:center;padding:18px 28px;font-size:16px;font-weight:700}
+.rcpt .note{margin-top:1em;font-family:var(--sans);font-size:13px;line-height:1.8;color:var(--sub)}
+.rcpt .note a{color:var(--green)}
+@media(max-width:480px){.rcpt .btn{display:flex;width:100%}}
 
 /* 文書ページ（プライバシーポリシー） */
 .doc-head{padding:clamp(56px,8vw,96px) 0 clamp(24px,3vw,32px);border-bottom:1px solid var(--hair)}

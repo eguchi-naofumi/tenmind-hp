@@ -32,6 +32,13 @@ EXTRA_CSS = """
 .who li::before{content:"";position:absolute;left:0;top:.85em;width:.45em;height:.45em;border-radius:50%;background:var(--brass)}
 .thanks{min-height:60vh;display:flex;align-items:center}
 .thanks .box{max-width:36em}
+.rcpt{margin-top:1.6em;padding:clamp(20px,3vw,28px);border:1px solid var(--hair);border-top:3px solid var(--brass);background:#fff}
+.rcpt .label{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--brass2)}
+.rcpt .no{margin-top:.15em;font-family:var(--sans);font-size:clamp(40px,6vw + 18px,56px);font-weight:700;letter-spacing:.14em;line-height:1.2;color:var(--green);font-variant-numeric:tabular-nums}
+.rcpt .btn{margin-top:1.2em;justify-content:center;padding:18px 28px;font-size:16px;font-weight:700}
+.rcpt .note{margin-top:1em;font-family:var(--sans);font-size:13px;line-height:1.8;color:var(--sub)}
+.rcpt .note a{color:var(--green)}
+@media(max-width:480px){.rcpt .btn{display:flex;width:100%}}
 
 /* 文書ページ（プライバシーポリシー） */
 .doc-head{padding:clamp(56px,8vw,96px) 0 clamp(24px,3vw,32px);border-bottom:1px solid var(--hair)}
@@ -97,7 +104,7 @@ LAB = """<main id="main">
       <div class="kicker">What Happens</div>
       <h2>この会でやること</h2>
       <p style="margin-top:1.2em;max-width:34em">社長が下した一つの判断を、その場で「判断の型カード」1枚にします。カードに書くのは三つだけです。何を基準に判断したか（主張）、その基準はどんな出来事から生まれたか（出典）、どういう場面で使う基準か（使い道）。この三つが揃うと、社長の勘は、後継者が学べる言葉になります。</p>
-      <p style="margin-top:1em;max-width:34em">当日は参加者の中からお一人に、最近迷った判断を一つ話していただきます（業種や金額は伏せて構いません）。江口が聞き取り、15分でカードにします。その後、カードを学んだAIが後継者からの問いにどう答えるかを、実際に動かしてお見せします。</p>
+      <p style="margin-top:1em;max-width:34em">当日は参加者の中からお一人に、最近迷った判断を一つ話していただきます（業種や金額は伏せて構いません）。希望される方がいない場合は、江口自身の判断を題材にします。江口が聞き取り、15分でカードにします。その後、カードを学んだAIが後継者からの問いにどう答えるかを、実際に動かしてお見せします。</p>
       <ol class="flow">
         <li>社長の判断には型がある ― 銀行員29年で見た、残る会社と消える会社の違い（10分）</li>
         <li>公開実演 ― 参加者の判断を1枚のカードにする（20分）</li>
@@ -155,11 +162,18 @@ document.getElementById("applyForm").addEventListener("submit", async (e) => {
   const body = new URLSearchParams(new FormData(f));
   body.set("src", window.tmSrc ? tmSrc("web") : new URLSearchParams(location.search).get("src") || "web");
   try {
-    await fetch(ENDPOINT, { method: "POST", mode: "no-cors", body });
+    const d = await fetch(ENDPOINT, { method: "POST", body }).then(r => r.json());
+    if (!d.ok) throw new Error(d.error);
+    // 受付番号はお礼ページで表示し、LINEに送ってもらう（同じタブの sessionStorage で渡す。重複申込でも同じ番号が返る）
+    try {
+      if (d.receipt) sessionStorage.setItem("tm_lab_receipt", JSON.stringify({ no: d.receipt, text: d.lineText }));
+      else sessionStorage.removeItem("tm_lab_receipt");
+    } catch (_) {}
     location.href = "/lab/thanks/";
-  } catch (_) {
+  } catch (x) {
     btn.disabled = false; btn.textContent = "申し込む（無料）";
-    err.textContent = "送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。";
+    err.textContent = x.message === "closed" ? "申し訳ありません。この回の受付は終了しました。"
+      : "送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。";
     err.style.display = "block";
   }
 });
@@ -171,14 +185,36 @@ THANKS = """<main id="main">
     <div class="wrap box">
       <div class="kicker">Thank You</div>
       <h2>お申込みありがとうございます</h2>
+      <div class="rcpt" id="rcpt" hidden>
+        <p class="label">受付番号</p>
+        <p class="no" id="rcptNo"></p>
+        <p style="margin-top:.8em">この番号をLINEで送っていただくと、当日のご案内がLINEにも届きます。ボタンを押すと、番号を入れた状態で社長AIラボのLINEが開きます。そのまま送信してください。</p>
+        <a class="btn" id="lineSend" href="https://lin.ee/6UWVMfB">LINEで受付番号を送る</a>
+        <p class="note">まだ社長AIラボのLINEの友だちでない場合は、先に<a href="https://lin.ee/6UWVMfB">友だち追加</a>をしてから、もう一度このボタンを押してください。パソコンでご覧の場合は、スマートフォンのLINEで、この番号をトークに送ってください。</p>
+      </div>
       <p style="margin-top:1.2em">ご登録のメールアドレスに、確認のメールをお送りしました。当日のZoomのURLも記載しています。</p>
       <p style="margin-top:1em;color:var(--sub)">数分たってもメールが届かない場合は、迷惑メールのフォルダをご確認ください。それでも見当たらない場合は、eguchi@tenmindinc.com までご連絡ください。</p>
-      <p style="margin-top:1.6em">社長AIラボのお知らせは、LINEでもお届けしています。</p>
-      <a class="btn" href="https://lin.ee/6UWVMfB">LINEで友だち追加</a>
+      <div id="lineAdd">
+        <p style="margin-top:1.6em">社長AIラボのお知らせは、LINEでもお届けしています。</p>
+        <a class="btn" href="https://lin.ee/6UWVMfB">LINEで友だち追加</a>
+      </div>
       <p style="margin-top:2em"><a href="/" style="color:var(--green)">株式会社テンマインド トップへ</a></p>
     </div>
   </section>
 </main>
+<script>
+// 申込直後（同じタブ）なら受付番号を出し、LINEのトークを本文入りで開くボタンにする（LINE URLスキーム oaMessage）。
+// 番号が無い（直接開いた等）ときは、友だち追加ボタンだけを出す
+(() => {
+  let r = null;
+  try { r = JSON.parse(sessionStorage.getItem("tm_lab_receipt") || "null"); } catch (_) {}
+  if (!r || !/^L[0-9]{4}$/.test(r.no) || !r.text) return;
+  document.getElementById("rcptNo").textContent = r.no;
+  document.getElementById("lineSend").href = "https://line.me/R/oaMessage/" + encodeURIComponent("@586npzvh") + "/?" + encodeURIComponent(r.text);
+  document.getElementById("rcpt").hidden = false;
+  document.getElementById("lineAdd").hidden = true;
+})();
+</script>
 """
 
 BOOKING = """<main id="main">

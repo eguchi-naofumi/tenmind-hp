@@ -277,6 +277,13 @@ footer .f-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8
 .who li::before{content:"";position:absolute;left:0;top:.85em;width:.45em;height:.45em;border-radius:50%;background:var(--brass)}
 .thanks{min-height:60vh;display:flex;align-items:center}
 .thanks .box{max-width:36em}
+.rcpt{margin-top:1.6em;padding:clamp(20px,3vw,28px);border:1px solid var(--hair);border-top:3px solid var(--brass);background:#fff}
+.rcpt .label{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--brass2)}
+.rcpt .no{margin-top:.15em;font-family:var(--sans);font-size:clamp(40px,6vw + 18px,56px);font-weight:700;letter-spacing:.14em;line-height:1.2;color:var(--green);font-variant-numeric:tabular-nums}
+.rcpt .btn{margin-top:1.2em;justify-content:center;padding:18px 28px;font-size:16px;font-weight:700}
+.rcpt .note{margin-top:1em;font-family:var(--sans);font-size:13px;line-height:1.8;color:var(--sub)}
+.rcpt .note a{color:var(--green)}
+@media(max-width:480px){.rcpt .btn{display:flex;width:100%}}
 
 /* 文書ページ（プライバシーポリシー） */
 .doc-head{padding:clamp(56px,8vw,96px) 0 clamp(24px,3vw,32px);border-bottom:1px solid var(--hair)}
@@ -344,14 +351,36 @@ footer .f-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8
     <div class="wrap box">
       <div class="kicker">Thank You</div>
       <h2>お申込みありがとうございます</h2>
+      <div class="rcpt" id="rcpt" hidden>
+        <p class="label">受付番号</p>
+        <p class="no" id="rcptNo"></p>
+        <p style="margin-top:.8em">この番号をLINEで送っていただくと、当日のご案内がLINEにも届きます。ボタンを押すと、番号を入れた状態で社長AIラボのLINEが開きます。そのまま送信してください。</p>
+        <a class="btn" id="lineSend" href="https://lin.ee/6UWVMfB">LINEで受付番号を送る</a>
+        <p class="note">まだ社長AIラボのLINEの友だちでない場合は、先に<a href="https://lin.ee/6UWVMfB">友だち追加</a>をしてから、もう一度このボタンを押してください。パソコンでご覧の場合は、スマートフォンのLINEで、この番号をトークに送ってください。</p>
+      </div>
       <p style="margin-top:1.2em">ご登録のメールアドレスに、確認のメールをお送りしました。当日のZoomのURLも記載しています。</p>
       <p style="margin-top:1em;color:var(--sub)">数分たってもメールが届かない場合は、迷惑メールのフォルダをご確認ください。それでも見当たらない場合は、eguchi@tenmindinc.com までご連絡ください。</p>
-      <p style="margin-top:1.6em">社長AIラボのお知らせは、LINEでもお届けしています。</p>
-      <a class="btn" href="https://lin.ee/6UWVMfB">LINEで友だち追加</a>
+      <div id="lineAdd">
+        <p style="margin-top:1.6em">社長AIラボのお知らせは、LINEでもお届けしています。</p>
+        <a class="btn" href="https://lin.ee/6UWVMfB">LINEで友だち追加</a>
+      </div>
       <p style="margin-top:2em"><a href="/" style="color:var(--green)">株式会社テンマインド トップへ</a></p>
     </div>
   </section>
 </main>
+<script>
+// 申込直後（同じタブ）なら受付番号を出し、LINEのトークを本文入りで開くボタンにする（LINE URLスキーム oaMessage）。
+// 番号が無い（直接開いた等）ときは、友だち追加ボタンだけを出す
+(() => {
+  let r = null;
+  try { r = JSON.parse(sessionStorage.getItem("tm_lab_receipt") || "null"); } catch (_) {}
+  if (!r || !/^L[0-9]{4}$/.test(r.no) || !r.text) return;
+  document.getElementById("rcptNo").textContent = r.no;
+  document.getElementById("lineSend").href = "https://line.me/R/oaMessage/" + encodeURIComponent("@586npzvh") + "/?" + encodeURIComponent(r.text);
+  document.getElementById("rcpt").hidden = false;
+  document.getElementById("lineAdd").hidden = true;
+})();
+</script>
 
 <footer>
   <div class="wrap f-main">
